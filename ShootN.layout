@@ -4,7 +4,13 @@ Order=0
 [Editor_0]
 Open=1
 Top=1
+<<<<<<< HEAD
 CursorCol=65
 CursorRow=282
 TopLine=254
+=======
+CursorCol=30
+CursorRow=2
+TopLine=1
+>>>>>>> 5375745615240d893115d60917d5484018040573
 LeftChar=1
