@@ -1,0 +1,33 @@
+# Project: ShootN
+# Makefile created by Dev-C++ 5.7.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = ShootN_private.res
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -L"C:/Users/Master/Desktop/allegro-5.0.10-mingw-4.7.0/lib" -static-libstdc++ -static-libgcc -mwindows -lgcc_eh -lallegro-5.0.10-monolith-mt -lallegro_image-5.0.10-mt -lallegro_primitives-5.0.10-mt -lallegro_font-5.0.10-mt -lallegro_ttf-5.0.10-mt
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Users/Master/Desktop/allegro-5.0.10-mingw-4.7.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++" -I"C:/Users/Master/Desktop/allegro-5.0.10-mingw-4.7.0/include"
+BIN      = ShootN.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CPP) -c main.c -o main.o $(CXXFLAGS)
+
+ShootN_private.res: ShootN_private.rc 
+	$(WINDRES) -i ShootN_private.rc --input-format=rc -o ShootN_private.res -O coff 
+
